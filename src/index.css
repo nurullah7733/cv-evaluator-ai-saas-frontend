@@ -1,0 +1,91 @@
+@import "tailwindcss";
+
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  --primary: #3b82f6;
+  --secondary: #10b981;
+  --tertiary: #f59e0b;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+}
+
+/* Theme Configuration */
+@theme {
+  /* Container settings */
+  --container-center: true;
+  --container-padding: 2rem;
+  --container-screens-2xl: 1400px;
+
+  /* Font Family */
+  --font-family-sans: Inter, system-ui, sans-serif;
+
+  /* Primary Colors */
+  --color-primary: theme(colors.gray.200);
+  --color-primary-foreground: theme(colors.gray.700);
+
+  --color-secondary-blue: #3b82f6;
+  --color-secondary-green: #10b981;
+  --color-secondary-yellow: #f59e0b;
+
+  /* Custom Colors */
+  --color-chart-1: #3b82f6; /* blue-500 */
+  --color-chart-2: #10b981; /* emerald-500 */
+  --color-chart-3: #f59e0b; /* amber-500 */
+  --color-chart-4: #8b5cf6; /* violet-500 */
+  --color-chart-5: #ef4444; /* red-500 */
+
+  /* Animations */
+  --animate-accordion-down: accordion-down 0.2s ease-out;
+  --animate-accordion-up: accordion-up 0.2s ease-out;
+}
+
+/* Keyframes */
+@keyframes accordion-down {
+  from {
+    height: 0;
+  }
+  to {
+    height: var(--radix-accordion-content-height);
+  }
+}
+
+@keyframes accordion-up {
+  from {
+    height: var(--radix-accordion-content-height);
+  }
+  to {
+    height: 0;
+  }
+}
+
+/* Custom Utilities */
+@utility accordion-down {
+  animation: var(--animate-accordion-down);
+}
+
+@utility accordion-up {
+  animation: var(--animate-accordion-up);
+}
