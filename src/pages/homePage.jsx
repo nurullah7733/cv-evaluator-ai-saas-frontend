@@ -81,7 +81,7 @@ export default function HomePage() {
     region: "",
     industry: "",
     desiredSalary: "",
-    llmName: "mistral",
+    llmName: "gemini",
   });
   const { openSignIn } = useClerk();
 
@@ -262,7 +262,7 @@ export default function HomePage() {
       } else if (result?.error?.status == 422) {
         toast.error(
           result?.error?.data?.data + " " + result?.error?.data?.fix ||
-            "Something went wrong. Please try again."
+            "Something went wrong. Please try again.",
         );
       } else {
         toast.error("Something went wrong. Please try again.");
@@ -276,7 +276,7 @@ export default function HomePage() {
     if (resumeFormDataFormLocalStorage) {
       const file = base64ToFile(
         resumeFormDataFormLocalStorage.file,
-        resumeFormDataFormLocalStorage.fileName
+        resumeFormDataFormLocalStorage.fileName,
       );
       setInputData({
         resume: file,
@@ -286,7 +286,7 @@ export default function HomePage() {
         region: resumeFormDataFormLocalStorage?.region,
         industry: resumeFormDataFormLocalStorage?.industry,
         desiredSalary: resumeFormDataFormLocalStorage?.desiredSalary,
-        llmName: resumeFormDataFormLocalStorage?.llmName,
+        llmName: "gemini",
       });
     }
   }, []);
@@ -322,8 +322,8 @@ export default function HomePage() {
                         dragActive
                           ? "border-blue-400 bg-blue-50"
                           : errors.resume
-                          ? "border-red-300 bg-red-50"
-                          : "border-gray-300 hover:border-gray-400"
+                            ? "border-red-300 bg-red-50"
+                            : "border-gray-300 hover:border-gray-400"
                       }`}
                       onDragEnter={handleDrag}
                       onDragLeave={handleDrag}
@@ -655,12 +655,19 @@ export default function HomePage() {
                         errors.llmName ? "border-red-300" : ""
                       } border-0`}
                     >
-                      <SelectValue placeholder="Select your role" />
+                      <SelectValue placeholder="Select provider" />
                     </SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="openai">Openai</SelectItem>
-                      <SelectItem value="deepseek">DeepSeek</SelectItem>
-                      <SelectItem value="mistral">Mistral</SelectItem>
+                      <SelectItem value="openai" disabled>
+                        OpenAI (Not available)
+                      </SelectItem>
+                      <SelectItem value="deepseek" disabled>
+                        DeepSeek (Not available)
+                      </SelectItem>
+                      <SelectItem value="mistral" disabled>
+                        Mistral (Not available)
+                      </SelectItem>
+                      <SelectItem value="gemini">Gemini</SelectItem>
                     </SelectContent>
                   </Select>
                 </div>

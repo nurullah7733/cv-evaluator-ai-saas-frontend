@@ -98,7 +98,7 @@ export default function AllResumesPage() {
                   </div>
                 </div>
                 <Link to="/">
-                  <Button className="bg-blue-600 text-white hover:bg-blue-700">
+                  <Button className="bg-blue-600 border border-gray-600 hover:bg-blue-700">
                     <FileText className="h-4 w-4 mr-2" />
                     Upload New Resume
                   </Button>

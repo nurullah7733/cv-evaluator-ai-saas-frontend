@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { pricing } from "@/lib/pricing";
 import { useAuth } from "@clerk/clerk-react";
 import { Badge } from "@/components/ui/badge";
 import {
@@ -33,13 +34,13 @@ export default function PaymentSuccessPage() {
     if (session) {
       setSessionId(session);
     }
-    setPlanType(plan);
+    setPlanType(plan === "month" ? "monthly" : plan === "year" ? "yearly" : plan);
   }, [location.search]);
 
   const planDetails = {
     monthly: {
       name: "Monthly Plan",
-      price: "$15",
+      price: `$${pricing.monthly.toFixed(2)}`,
       period: "month",
       features: [
         "All Monthly Features",
@@ -53,7 +54,7 @@ export default function PaymentSuccessPage() {
     },
     yearly: {
       name: "Yearly Plan",
-      price: "$170",
+      price: `$${pricing.yearly.toFixed(2)}`,
       period: "year",
       features: [
         "All Monthly Features",

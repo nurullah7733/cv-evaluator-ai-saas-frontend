@@ -5,6 +5,7 @@ import { useAuth } from "@clerk/clerk-react";
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { pricing } from "@/lib/pricing";
 import { Badge } from "@/components/ui/badge";
 import {
   Tooltip,
@@ -35,7 +36,7 @@ const plans = [
   {
     id: monthlyPriceId,
     name: "Monthly Plan",
-    price: 15,
+    price: pricing.monthly,
     period: "month",
     description:
       "Perfect for job seekers who need immediate resume optimization",
@@ -99,9 +100,9 @@ const plans = [
   {
     id: yearlyPriceId,
     name: "Yearly Plan",
-    price: 170,
+    price: pricing.yearly,
     period: "year",
-    originalPrice: 180,
+    originalPrice: pricing.yearlyOriginal,
     description: "Best value for serious job seekers and career changers",
     popular: true,
     features: [
@@ -159,7 +160,7 @@ const plans = [
     ],
     buttonText: "Start Yearly Plan",
     buttonVariant: "default",
-    savings: "Save $10",
+    savings: `Save $${pricing.yearlySavings}`,
   },
 ];
 
@@ -228,8 +229,8 @@ const PlansPage = () => {
                   plan.popular
                     ? "border-blue-500 shadow-lg scale-105"
                     : selectedPlan === plan.id
-                    ? "border-blue-300"
-                    : "border-gray-200 hover:border-gray-300"
+                      ? "border-blue-300"
+                      : "border-gray-200 hover:border-gray-300"
                 }`}
               >
                 <CardHeader className="pb-4 relative">
@@ -252,7 +253,7 @@ const PlansPage = () => {
                   <div className="text-center">
                     <div className="flex items-center justify-center gap-2 mb-2">
                       <span className="text-4xl font-bold text-gray-900">
-                        ${plan.price}
+                        ${plan.price.toFixed(2)}
                       </span>
                       <div className="text-left">
                         <div className="text-sm text-gray-600">
@@ -260,7 +261,7 @@ const PlansPage = () => {
                         </div>
                         {plan.originalPrice && (
                           <div className="text-xs text-gray-400 line-through">
-                            ${plan.originalPrice}
+                            ${plan.originalPrice.toFixed(2)}
                           </div>
                         )}
                       </div>
@@ -322,7 +323,7 @@ const PlansPage = () => {
                     size="lg"
                     className={`w-full ${
                       plan.popular
-                        ? "bg-blue-600 hover:bg-blue-700 text-white"
+                        ? "border border-blue-600 text-blue-600 hover:bg-blue-50"
                         : "border-blue-600 text-blue-600 hover:bg-blue-50"
                     }  `}
                   >
