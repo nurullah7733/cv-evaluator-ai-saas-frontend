@@ -120,7 +120,7 @@ export default function ResumeDetailsPage() {
                       </span>
                       <span className="font-medium ml-1 hidden sm:inline">
                         {new Date(
-                          data?.data?.[0]?.createdAt
+                          data?.data?.[0]?.createdAt,
                         )?.toLocaleDateString("en-US", {
                           month: "short",
                           day: "numeric",
@@ -133,7 +133,7 @@ export default function ResumeDetailsPage() {
                       <span className="font-medium ml-1">
                         {" "}
                         {new Date(
-                          data?.data?.[0]?.createdAt
+                          data?.data?.[0]?.createdAt,
                         )?.toLocaleDateString("en-US", {
                           month: "short",
                           day: "numeric",
@@ -179,7 +179,7 @@ export default function ResumeDetailsPage() {
                     </div>
                     <div
                       className={`text-5xl font-bold mb-2 ${getScoreColor(
-                        analysis?.scores?.overall
+                        analysis?.scores?.overall,
                       )}`}
                     >
                       {analysis?.scores?.overall}
@@ -201,7 +201,7 @@ export default function ResumeDetailsPage() {
                     </div>
                     <div
                       className={`text-5xl font-bold mb-2 ${getScoreColor(
-                        analysis?.jobFit?.score
+                        analysis?.jobFit?.score,
                       )}`}
                     >
                       {analysis?.jobFit?.score}%
@@ -223,7 +223,7 @@ export default function ResumeDetailsPage() {
                       </div>
                       <div
                         className={`text-5xl font-bold mb-2 ${getScoreColor(
-                          analysis?.interview?.probability
+                          analysis?.interview?.probability,
                         )}`}
                       >
                         {analysis?.interview?.probability}%
@@ -282,35 +282,35 @@ export default function ResumeDetailsPage() {
               <TabsList className="grid w-full grid-cols-2 gap-3 sm:grid-cols-5 rounded-lg sm:!mb-0 !mb-28">
                 <TabsTrigger
                   value="overview"
-                  className="data-[state=active]:bg-blue-600 data-[state=active]:text-white text-gray-700 bg-gray-200  cursor-pointer "
+                  className="data-[state=active]:bg-blue-600 data-[state=active]:text-blue-600 text-gray-700 bg-gray-200  cursor-pointer "
                 >
                   <FileText className="h-4 w-4 mr-2" />
                   Overview
                 </TabsTrigger>
                 <TabsTrigger
                   value="analysis"
-                  className="data-[state=active]:bg-blue-600 data-[state=active]:text-white text-gray-700 bg-gray-200 cursor-pointer"
+                  className="data-[state=active]:bg-blue-600 data-[state=active]:text-blue-600 text-gray-700 bg-gray-200 cursor-pointer"
                 >
                   <BarChart3 className="h-4 w-4 mr-2" />
                   Analysis
                 </TabsTrigger>
                 <TabsTrigger
                   value="suggestions"
-                  className="data-[state=active]:bg-blue-600 data-[state=active]:text-white text-gray-700 bg-gray-200  cursor-pointer "
+                  className="data-[state=active]:bg-blue-600 data-[state=active]:text-blue-600 text-gray-700 bg-gray-200  cursor-pointer "
                 >
                   <Lightbulb className="h-4 w-4 mr-2" />
                   Suggestions
                 </TabsTrigger>
                 <TabsTrigger
                   value="improvements"
-                  className="data-[state=active]:bg-blue-600 data-[state=active]:text-white text-gray-700 bg-gray-200 cursor-pointer "
+                  className="data-[state=active]:bg-blue-600 data-[state=active]:text-blue-600 text-gray-700 bg-gray-200 cursor-pointer "
                 >
                   <Zap className="h-4 w-4 mr-2" />
                   Improvements
                 </TabsTrigger>
                 <TabsTrigger
                   value="market"
-                  className="data-[state=active]:bg-blue-600 data-[state=active]:text-white text-gray-700 bg-gray-200 cursor-pointer"
+                  className="data-[state=active]:bg-blue-600 data-[state=active]:text-blue-600 text-gray-700 bg-gray-200 cursor-pointer"
                 >
                   <TrendingUp className="h-4 w-4 mr-2" />
                   Market
@@ -695,7 +695,7 @@ export default function ResumeDetailsPage() {
                               </span>
                               <span
                                 className={`text-lg font-bold ${getScoreColor(
-                                  value
+                                  value,
                                 )}`}
                               >
                                 {value}%
@@ -703,7 +703,7 @@ export default function ResumeDetailsPage() {
                             </div>
                             <Progress value={value} className="h-2" />
                           </div>
-                        )
+                        ),
                       )}
                     </div>
                   </CardContent>
@@ -1011,7 +1011,7 @@ export default function ResumeDetailsPage() {
                                         {(keyword?.weight * 100).toFixed(0)}%
                                       </Badge>
                                     </div>
-                                  )
+                                  ),
                                 )}
                               </div>
                             </div>
@@ -1048,7 +1048,7 @@ export default function ResumeDetailsPage() {
                                       {action}
                                     </p>
                                   </div>
-                                )
+                                ),
                               )}
                               {!isPro && (
                                 <div className="mt-4 p-3 bg-amber-50 rounded-lg border border-amber-200">
@@ -1093,7 +1093,7 @@ export default function ResumeDetailsPage() {
                           <div className="flex-shrink-0">
                             <Badge
                               className={`${getPriorityColor(
-                                suggestion?.priority
+                                suggestion?.priority,
                               )} text-white`}
                             >
                               Priority {suggestion?.priority}
@@ -1152,7 +1152,7 @@ export default function ResumeDetailsPage() {
                                   >
                                     {keyword}
                                   </Badge>
-                                )
+                                ),
                               )}
                             </div>
                           </div>
@@ -1176,7 +1176,7 @@ export default function ResumeDetailsPage() {
                                       {cert}
                                     </p>
                                   </div>
-                                )
+                                ),
                               )}
                             </div>
                           </div>
@@ -1198,7 +1198,7 @@ export default function ResumeDetailsPage() {
                                   >
                                     {skill}
                                   </Badge>
-                                )
+                                ),
                               )}
                             </div>
                           </div>
@@ -1250,7 +1250,7 @@ export default function ResumeDetailsPage() {
                                       className="h-2"
                                     />
                                   </div>
-                                )
+                                ),
                               )}
                             </div>
                           </CardContent>
@@ -1311,7 +1311,7 @@ export default function ResumeDetailsPage() {
                                 >
                                   +{keyword}
                                 </Badge>
-                              )
+                              ),
                             )}
                           </div>
                         )}
@@ -1396,7 +1396,7 @@ export default function ResumeDetailsPage() {
                                           )}
                                         </div>
                                       );
-                                    }
+                                    },
                                   )}
                                 </div>
 
@@ -1405,7 +1405,7 @@ export default function ResumeDetailsPage() {
                                     1 && <Separator className="my-6" />}
                               </div>
                             );
-                          }
+                          },
                         )}
                       </CardContent>
                     </Card>
@@ -1438,7 +1438,7 @@ export default function ResumeDetailsPage() {
                                     {pitch}
                                   </p>
                                 </div>
-                              )
+                              ),
                             )}
                             <Button className="w-full bg-purple-600 hover:bg-purple-700">
                               <FileText className="h-4 w-4 mr-2" />
@@ -1538,7 +1538,7 @@ export default function ResumeDetailsPage() {
                                     <CheckCircle2 className="h-4 w-4 text-green-600 mt-0.5 flex-shrink-0" />
                                     {driver}
                                   </li>
-                                )
+                                ),
                               )}
                             </ul>
                           </div>
@@ -1601,7 +1601,7 @@ export default function ResumeDetailsPage() {
                                     Trending
                                   </Badge>
                                 </div>
-                              )
+                              ),
                             )}
                           </div>
                         </CardContent>
